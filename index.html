@@ -5,64 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bishwajit Saha | Software Engineer</title>
     
+    <!-- This line changes the "Globe" icon in the browser tab to your picture -->
+    <link rel="icon" type="image/jpeg" href="profile.jpg">
+    
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-color: #0d1117;
-            --text-main: #ffffff;
-            --text-muted: #8b949e;
-            --card-blue: #0366d6;
+            /* Dark Theme Colors */
+            --bg-dark: #161b22;
+            --text-light: #ffffff;
+            --text-muted-light: #8b949e;
+            
+            /* Light Theme Colors (For the bottom half) */
+            --bg-light: #ffffff;
+            --text-dark: #24292f;
+            --text-muted-dark: #57606a;
+            
+            --card-blue: #0969da;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            /* Using a lighter, cleaner font weight to fix the "too bold" issue */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+            background-color: var(--bg-light); /* Base background is now white */
             overflow-x: hidden;
         }
 
-        /* Particle Background Container */
+        /* ---------------- HERO SECTION (DARK) ---------------- */
+        .hero-wrapper {
+            position: relative;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            z-index: 1;
+        }
+
         #tsparticles {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 80vh;
+            height: 100%;
             z-index: -1;
         }
 
-        /* Navigation / Top Bar */
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1.5rem 3rem;
-            background: rgba(13, 17, 23, 0.8);
-            backdrop-filter: blur(10px);
-            position: fixed;
+            position: absolute;
             width: 100%;
             top: 0;
             z-index: 100;
         }
         nav h2 {
             font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: 500;
         }
         nav .links {
             display: flex;
             gap: 1.5rem;
         }
         nav .links a {
-            color: var(--text-main);
+            color: var(--text-light);
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
@@ -70,81 +91,81 @@
             letter-spacing: 1px;
         }
 
-        /* Hero Section (Centered) */
-        .hero {
-            height: 80vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 2rem;
-        }
-        .hero img {
-            width: 120px;
-            height: 120px;
+        /* Profile Image Setup */
+        .profile-pic {
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             margin-bottom: 1.5rem;
             object-fit: cover;
-            border: 2px solid #30363d;
+            border: 3px solid #30363d;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 500;
+
+        .hero-wrapper h1 {
+            font-size: 3.5rem;
+            font-weight: 400; /* Thinner, sleeker font */
             letter-spacing: -1px;
             margin-bottom: 0.5rem;
         }
-        .hero h3 {
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--text-main);
+        .hero-wrapper h3 {
+            font-size: 1.3rem;
+            font-weight: 300; /* Thinner, sleeker font */
+            color: var(--text-light);
             margin-bottom: 1.5rem;
+            opacity: 0.9;
         }
         
-        /* Social Icons */
         .social-icons {
             display: flex;
             gap: 1.2rem;
             margin-top: 1rem;
         }
         .social-icons a {
-            color: var(--text-main);
+            color: var(--text-light);
             font-size: 1.5rem;
             transition: color 0.2s, transform 0.2s;
         }
         .social-icons a:hover {
-            color: var(--text-muted);
+            color: var(--text-muted-light);
             transform: translateY(-3px);
         }
 
-        /* Content Sections */
-        .section-container {
+        /* ---------------- CONTENT SECTION (WHITE) ---------------- */
+        .content-section {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            padding: 6rem 2rem;
+        }
+
+        .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 5rem 2rem;
-            background-color: var(--bg-color);
         }
 
         /* About Text */
         .about-text h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+            font-weight: 600;
             margin-bottom: 1.5rem;
         }
         .about-text p {
-            font-size: 1.5rem;
-            color: var(--text-muted);
+            font-size: 1.3rem;
+            color: var(--text-muted-dark);
             margin-bottom: 1rem;
-            line-height: 1.5;
-            font-weight: 300;
+            line-height: 1.6;
+            font-weight: 300; /* Thinner paragraph text */
         }
 
         /* Projects Section */
-        .projects-header {
+        .section-title {
             text-align: center;
             font-size: 2rem;
+            font-weight: 500;
             margin-bottom: 3rem;
-            margin-top: 4rem;
+            margin-top: 5rem;
         }
+        
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -158,53 +179,126 @@
             color: white;
             transition: transform 0.2s;
             text-align: center;
+            box-shadow: 0 10px 20px rgba(9, 105, 218, 0.15);
         }
         .project-card:hover {
             transform: translateY(-5px);
         }
         .project-card i {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
         }
         .project-card h3 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            font-weight: 500;
             margin-bottom: 1rem;
         }
         .project-card p {
-            font-size: 1.1rem;
-            line-height: 1.5;
-            opacity: 0.9;
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 300;
+            opacity: 0.95;
             text-align: left;
         }
 
+        /* ---------------- TIMELINE SECTION ---------------- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        /* The vertical line */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #d0d7de;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
+
+        /* The circles on the timeline */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--card-blue);
+            border: 4px solid var(--bg-light);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item.right::after { left: -10px; }
+
+        .timeline-content {
+            padding: 1.5rem;
+            background-color: #f6f8fa;
+            border: 1px solid #d0d7de;
+            border-radius: 6px;
+        }
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+        .timeline-content h4 {
+            color: var(--card-blue);
+            margin-bottom: 1rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .timeline-content p {
+            color: var(--text-muted-dark);
+            font-size: 0.95rem;
+            font-weight: 300;
+            line-height: 1.5;
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero h3 { font-size: 1.2rem; }
-            .about-text p { font-size: 1.2rem; }
+            .hero-wrapper h1 { font-size: 2.8rem; }
             nav { padding: 1.5rem; flex-direction: column; gap: 1rem; }
+            
+            /* Snap timeline to the left on mobile */
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item.right { left: 0; }
+            .timeline-item.left::after, .timeline-item.right::after { left: 21px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Particle Background -->
-    <div id="tsparticles"></div>
+    <!-- 1. HERO SECTION (DARK BACKGROUND) -->
+    <div class="hero-wrapper">
+        <div id="tsparticles"></div>
+        
+        <nav>
+            <h2>Bishwajit Saha</h2>
+            <div class="links">
+                <a href="#">Home</a>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#">CV</a>
+            </div>
+        </nav>
 
-    <!-- Navigation -->
-    <nav>
-        <h2>Bishwajit Saha</h2>
-        <div class="links">
-            <a href="#">Home</a>
-            <a href="#about">About</a>
-            <a href="#projects">Projects</a>
-            <a href="#">CV</a>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <!-- Replace src with your actual photo URL later -->
-        <img src="https://avatars.githubusercontent.com/u/150000000?v=4" alt="Bishwajit Saha" onerror="this.style.display='none'">
+        <!-- The image source is set to profile.jpg which we will upload next -->
+        <img src="profile.jpg" alt="Bishwajit Saha" class="profile-pic" onerror="this.src='https://avatars.githubusercontent.com/u/150000000?v=4'">
         
         <h1>Bishwajit Saha</h1>
         <h3>Software Engineer & Systems Developer</h3>
@@ -213,40 +307,58 @@
             <a href="https://github.com/Bissosaha" target="_blank"><i class="fab fa-github"></i></a>
             <a href="mailto:sahabishwajit18@gmail.com"><i class="fas fa-envelope"></i></a>
             <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fas fa-satellite-dish"></i></a> <!-- Upwork placeholder icon -->
+            <a href="#"><i class="fas fa-satellite-dish"></i></a>
         </div>
     </div>
 
-    <!-- About & Projects Container -->
-    <div class="section-container" id="about">
-        
-        <div class="about-text">
-            <h2>Hey!</h2>
-            <p>I'm Bishwajit Saha!</p>
-            <p>I am a 3rd-year Computer Science and Engineering student with a strong foundation in C++ and Java. I love programming, building backend architectures, and automating server systems!</p>
-            <p>Feel free to get in touch or take a look at my past work below.</p>
-        </div>
-
-        <h2 class="projects-header" id="projects">My top projects</h2>
-        
-        <div class="projects-grid">
-            <!-- Project 1 -->
-            <div class="project-card">
-                <i class="fas fa-server"></i>
-                <h3>PBX Routing Bot</h3>
-                <p>A fully containerized, high-availability Python application integrated with a FreePBX server. I successfully bypassed strict SIP host firewalls using advanced Docker network routing and automated real-time database management.</p>
-            </div>
+    <!-- 2. CONTENT SECTION (WHITE BACKGROUND) -->
+    <div class="content-section">
+        <div class="container" id="about">
             
-            <!-- Future Project Placeholder (Can be deleted or uncommented later) -->
-            <!--
-            <div class="project-card" style="background-color: #b31d28;">
-                <i class="fas fa-code-branch"></i>
-                <h3>Project Two</h3>
-                <p>Description goes here when you build your next tool.</p>
+            <div class="about-text">
+                <h2>Hey!</h2>
+                <p>I'm Bishwajit Saha!</p>
+                <p>I am a 3rd-year Computer Science and Engineering student with a strong foundation in C++ and Java. I love programming, building backend architectures, and automating server systems!</p>
+                <p>Feel free to get in touch or take a look at my past work below.</p>
             </div>
-            -->
-        </div>
 
+            <!-- PROJECTS -->
+            <h2 class="section-title" id="projects">My top projects</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <i class="fas fa-server"></i>
+                    <h3>PBX Routing Bot</h3>
+                    <p>A fully containerized, high-availability Python application integrated with a FreePBX server. I successfully bypassed strict SIP host firewalls using advanced Docker network routing and automated real-time database management.</p>
+                </div>
+            </div>
+
+            <!-- TIMELINE -->
+            <h2 class="section-title">Timeline</h2>
+            
+            <div class="timeline">
+                
+                <!-- Left Item -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>PBX VoIP Bot Architecture</h3>
+                        <h4>June 2026</h4>
+                        <p>Engineered and deployed a containerized Asterisk/FreePBX routing engine utilizing Python, Docker Compose, and host-networking to bypass restrictive SIP firewalls.</p>
+                    </div>
+                </div>
+
+                <!-- Right Item -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>BSc Computer Science</h3>
+                        <h4>Present</h4>
+                        <p>Currently in my 3rd year of Computer Science and Engineering, focusing on core programming foundations in C++ and Java, alongside server administration.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
 
     <!-- tsParticles Scripts -->
@@ -254,36 +366,12 @@
     <script>
         tsParticles.load("tsparticles", {
             fpsLimit: 60,
-            interactivity: {
-                events: {
-                    onHover: { enable: true, mode: "grab" },
-                    resize: true,
-                },
-                modes: {
-                    grab: { distance: 140, links: { opacity: 0.5 } }
-                },
-            },
+            interactivity: { events: { onHover: { enable: true, mode: "grab" } }, modes: { grab: { distance: 140, links: { opacity: 0.5 } } } },
             particles: {
                 color: { value: "#ffffff" },
-                links: {
-                    color: "#ffffff",
-                    distance: 150,
-                    enable: true,
-                    opacity: 0.2,
-                    width: 1,
-                },
-                move: {
-                    enable: true,
-                    speed: 1,
-                    direction: "none",
-                    random: false,
-                    straight: false,
-                    outModes: { default: "bounce" },
-                },
-                number: {
-                    density: { enable: true, area: 800 },
-                    value: 40,
-                },
+                links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 1, direction: "none", outModes: { default: "bounce" } },
+                number: { density: { enable: true, area: 800 }, value: 40 },
                 opacity: { value: 0.3 },
                 size: { value: { min: 1, max: 3 } },
             },
