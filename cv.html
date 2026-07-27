@@ -158,6 +158,7 @@
         /* Main Content */
         .main-content {
             padding: 2rem 3rem;
+            background-color: var(--bg-main);
         }
         
         .content-section {
@@ -179,7 +180,7 @@
 
         .timeline-item {
             margin-bottom: 2rem;
-            page-break-inside: avoid; /* Prevents splitting across pages in PDF */
+            page-break-inside: avoid;
         }
         .timeline-header {
             display: flex;
@@ -221,56 +222,73 @@
             font-weight: 500;
         }
 
-        /* ---------------- PRINT STYLES ---------------- */
+        /* ---------------- FORCED PRINT STYLES ---------------- */
         @media print {
             * {
                 -webkit-print-color-adjust: exact !important;
                 print-color-adjust: exact !important;
             }
-            body {
-                background-color: white;
-                color: black;
+            body, html {
+                background-color: #ffffff !important;
+                color: #000000 !important;
             }
             .cv-container {
-                margin: 0;
-                border: none;
-                box-shadow: none;
-                width: 100%;
-                max-width: 100%;
+                margin: 0 !important;
+                border: none !important;
+                box-shadow: none !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                background-color: #ffffff !important;
             }
             .action-bar {
-                display: none; /* Hides buttons when printing */
+                display: none !important;
             }
-            .cv-header {
-                background-color: #f0f4f8 !important; /* Light professional gray/blue for print */
-                color: black !important;
-                border-bottom: 3px solid #0366d6 !important;
-                padding: 2rem;
-            }
-            .cv-header h1 { color: black !important; }
-            .cv-header p { color: #333 !important; }
             
-            .sidebar {
-                background-color: white !important;
-                border-right: 1px solid #ddd !important;
-                padding: 1.5rem;
+            /* Header */
+            .cv-header {
+                background-color: #f0f4f8 !important;
+                color: #000000 !important;
+                border-bottom: 3px solid #0366d6 !important;
+                padding: 2rem !important;
             }
-            .sidebar-section h2 { color: black !important; border-bottom: 1px solid #ddd !important; }
-            .contact-item, .contact-item a { color: #444 !important; }
+            .cv-header h1 { color: #000000 !important; }
+            .cv-header p { color: #333333 !important; }
+            
+            /* Sidebar */
+            .sidebar {
+                background-color: #ffffff !important;
+                border-right: 1px solid #dddddd !important;
+                padding: 1.5rem !important;
+            }
+            .sidebar-section h2 { 
+                color: #000000 !important; 
+                border-bottom: 1px solid #dddddd !important; 
+            }
+            .contact-item, .contact-item a, .skill-item span { 
+                color: #333333 !important; 
+            }
             .contact-item i { color: #0366d6 !important; }
             
+            /* Dots */
             .dot.empty { background-color: #e1e4e8 !important; }
             .dot.filled { background-color: #0366d6 !important; }
             
-            .main-content { padding: 1.5rem 2rem; }
-            .content-section h2 { color: black !important; }
+            /* Main Content */
+            .main-content { 
+                padding: 1.5rem 2rem !important; 
+                background-color: #ffffff !important;
+            }
+            .content-section h2 { color: #000000 !important; }
             .content-section h2 i { color: #0366d6 !important; }
             
-            .timeline-header h3 { color: black !important; }
-            .timeline-header .date { color: #555 !important; }
-            .timeline-subheader { color: #0366d6 !important; }
-            .timeline-item ul { color: #333 !important; }
-            .timeline-item li strong { color: black !important; }
+            /* Timeline */
+            .timeline-header h3 { color: #000000 !important; }
+            .timeline-header .date { color: #555555 !important; }
+            .timeline-subheader, .timeline-subheader i { color: #0366d6 !important; }
+            
+            /* Text overrrides for PDF */
+            .timeline-item ul, .timeline-item li { color: #333333 !important; }
+            .timeline-item li strong { color: #000000 !important; }
         }
 
         /* Mobile Responsive */
@@ -386,7 +404,7 @@
                             <span class="date">Expected Graduation: 2027</span>
                         </div>
                         <div class="timeline-subheader">
-                            <i class="fas fa-university"></i> [Insert University Name Here]
+                            <i class="fas fa-university"></i> American International University-Bangladesh (AIUB)
                         </div>
                         <ul>
                             <li>Currently completing 3rd-year coursework focusing on robust software architecture, data structures, and systems engineering.</li>
@@ -424,20 +442,6 @@
                         <ul>
                             <li><strong>Systems Integration:</strong> Built an automated queuing system integrating Telegram's API with a customized backend server application.</li>
                             <li><strong>Optimization:</strong> Structured the architecture to handle asynchronous requests, ensuring zero data loss during high-traffic queue processing.</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-header">
-                            <h3>AegisChat Mobile Client</h3>
-                            <span class="date">April 2026</span>
-                        </div>
-                        <div class="timeline-subheader">
-                            <i class="fab fa-android"></i> Kotlin / Android Development
-                        </div>
-                        <ul>
-                            <li><strong>Cross-Stack Versatility:</strong> Expanded system architecture skills into frontend mobile development by engineering a native Android communication client.</li>
-                            <li><strong>Client-Server Communication:</strong> Handled data formatting, UI rendering, and state management for real-time messaging.</li>
                         </ul>
                     </div>
 
