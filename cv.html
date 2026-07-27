@@ -1,1 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bishwajit Saha | CV</title>
+    
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Web Dark Theme */
+            --bg-main: #0d1117;
+            --bg-sidebar: #161b22;
+            --header-bg: #0d2a3f;
+            --text-primary: #ffffff;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --border-color: #30363d;
+            
+            /* Skill Dots */
+            --dot-filled: #58a6ff;
+            --dot-empty: #30363d;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .cv-container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            background-color: var(--bg-main);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Top Action Bar (Hidden in Print) */
+        .action-bar {
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            background-color: var(--bg-sidebar);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .action-bar a, .action-bar button {
+            color: var(--text-primary);
+            text-decoration: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .action-bar button:hover, .action-bar a:hover {
+            color: var(--accent);
+        }
+
+        /* Header */
+        .cv-header {
+            background-color: var(--header-bg);
+            padding: 2.5rem 3rem;
+            border-bottom: 3px solid var(--accent);
+        }
+        .cv-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .cv-header p {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #c9d1d9;
+        }
+
+        /* Grid Layout */
+        .cv-body {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            background-color: var(--bg-sidebar);
+            padding: 2rem;
+            border-right: 1px solid var(--border-color);
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2.5rem;
+        }
+        .sidebar-section h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .contact-item i {
+            color: var(--accent);
+            width: 16px;
+        }
+        .contact-item a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        /* Skill Dots Visualization */
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .dots {
+            display: flex;
+            gap: 4px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .dot.filled { background-color: var(--dot-filled); }
+        .dot.empty { background-color: var(--dot-empty); }
+
+        /* Main Content */
+        .main-content {
+            padding: 2rem 3rem;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+        }
+        .content-section h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-primary);
+        }
+        .content-section h2 i {
+            color: var(--accent);
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            page-break-inside: avoid; /* Prevents splitting across pages in PDF */
+        }
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-header h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .timeline-header .date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        .timeline-subheader {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .timeline-item ul {
+            list-style-type: disc;
+            margin-left: 1.2rem;
+            color: var(--text-secondary);
+        }
+        .timeline-item li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .timeline-item li strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ---------------- PRINT STYLES ---------------- */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            body {
+                background-color: white;
+                color: black;
+            }
+            .cv-container {
+                margin: 0;
+                border: none;
+                box-shadow: none;
+                width: 100%;
+                max-width: 100%;
+            }
+            .action-bar {
+                display: none; /* Hides buttons when printing */
+            }
+            .cv-header {
+                background-color: #f0f4f8 !important; /* Light professional gray/blue for print */
+                color: black !important;
+                border-bottom: 3px solid #0366d6 !important;
+                padding: 2rem;
+            }
+            .cv-header h1 { color: black !important; }
+            .cv-header p { color: #333 !important; }
+            
+            .sidebar {
+                background-color: white !important;
+                border-right: 1px solid #ddd !important;
+                padding: 1.5rem;
+            }
+            .sidebar-section h2 { color: black !important; border-bottom: 1px solid #ddd !important; }
+            .contact-item, .contact-item a { color: #444 !important; }
+            .contact-item i { color: #0366d6 !important; }
+            
+            .dot.empty { background-color: #e1e4e8 !important; }
+            .dot.filled { background-color: #0366d6 !important; }
+            
+            .main-content { padding: 1.5rem 2rem; }
+            .content-section h2 { color: black !important; }
+            .content-section h2 i { color: #0366d6 !important; }
+            
+            .timeline-header h3 { color: black !important; }
+            .timeline-header .date { color: #555 !important; }
+            .timeline-subheader { color: #0366d6 !important; }
+            .timeline-item ul { color: #333 !important; }
+            .timeline-item li strong { color: black !important; }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .cv-body { grid-template-columns: 1fr; }
+            .sidebar { border-right: none; border-bottom: 1px solid var(--border-color); }
+            .timeline-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cv-container">
+        
+        <!-- Action Bar (Only visible on web) -->
+        <div class="action-bar">
+            <a href="index.html"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+            <button onclick="window.print()"><i class="fas fa-print"></i> Download PDF</button>
+        </div>
+
+        <div class="cv-header">
+            <h1>Bishwajit Saha</h1>
+            <p>Systems Architect. Cloud Infrastructure Enthusiast. Backend Automation Specialist.</p>
+        </div>
+
+        <div class="cv-body">
+            
+            <!-- LEFT SIDEBAR -->
+            <div class="sidebar">
+                
+                <div class="sidebar-section">
+                    <h2>Contact</h2>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:sahabishwajit18@gmail.com">sahabishwajit18@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Dhaka, Bangladesh</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <a href="https://bishwajitsaha.com">bishwajitsaha.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/Bissosaha" target="_blank">github.com/Bissosaha</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2>Core Tech Stack</h2>
+                    
+                    <div class="skill-item">
+                        <span>Linux / Server Admin</span>
+                        <div class="dots">
+                            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Python</span>
+                        <div class="dots">
+                            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Docker / Containers</span>
+                        <div class="dots">
+                            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>C++</span>
+                        <div class="dots">
+                            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Java</span>
+                        <div class="dots">
+                            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span><span class="dot empty"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-section">
+                    <h2>Languages</h2>
+                    <div class="skill-item">
+                        <span>Bengali</span>
+                        <span style="color: var(--text-secondary); font-size: 0.85rem;">Native</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>English</span>
+                        <span style="color: var(--text-secondary); font-size: 0.85rem;">Fluent / Professional</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>German</span>
+                        <span style="color: var(--text-secondary); font-size: 0.85rem;">A1 (In Progress)</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT MAIN CONTENT -->
+            <div class="main-content">
+                
+                <div class="content-section">
+                    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3>Bachelor's in Computer Science and Engineering</h3>
+                            <span class="date">Expected Graduation: 2027</span>
+                        </div>
+                        <div class="timeline-subheader">
+                            <i class="fas fa-university"></i> [Insert University Name Here]
+                        </div>
+                        <ul>
+                            <li>Currently completing 3rd-year coursework focusing on robust software architecture, data structures, and systems engineering.</li>
+                            <li>Applied theoretical knowledge directly into real-world server deployment and network routing solutions.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2><i class="fas fa-server"></i> Systems Architecture & Projects</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3>Containerized VoIP Routing Engine</h3>
+                            <span class="date">June 2026 - Present</span>
+                        </div>
+                        <div class="timeline-subheader">
+                            <i class="fab fa-github"></i> github.com/Bissosaha/PBX-Routing-System
+                        </div>
+                        <ul>
+                            <li><strong>Infrastructure Blueprint:</strong> Designed and orchestrated a fully containerized PBX environment utilizing Docker and FreePBX.</li>
+                            <li><strong>Network Problem Solving:</strong> Successfully engineered network protocols to bypass stringent SIP host firewalls, establishing secure external communication.</li>
+                            <li><strong>Automation Integration:</strong> Developed Python-based worker bots to automate real-time routing commands and manage database interactions seamlessly.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3>Automated Telegram Queue Bot</h3>
+                            <span class="date">May 2026</span>
+                        </div>
+                        <div class="timeline-subheader">
+                            <i class="fab fa-github"></i> github.com/Bissosaha/telegram-number-queue-bot
+                        </div>
+                        <ul>
+                            <li><strong>Systems Integration:</strong> Built an automated queuing system integrating Telegram's API with a customized backend server application.</li>
+                            <li><strong>Optimization:</strong> Structured the architecture to handle asynchronous requests, ensuring zero data loss during high-traffic queue processing.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3>AegisChat Mobile Client</h3>
+                            <span class="date">April 2026</span>
+                        </div>
+                        <div class="timeline-subheader">
+                            <i class="fab fa-android"></i> Kotlin / Android Development
+                        </div>
+                        <ul>
+                            <li><strong>Cross-Stack Versatility:</strong> Expanded system architecture skills into frontend mobile development by engineering a native Android communication client.</li>
+                            <li><strong>Client-Server Communication:</strong> Handled data formatting, UI rendering, and state management for real-time messaging.</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
