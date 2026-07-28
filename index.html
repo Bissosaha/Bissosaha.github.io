@@ -22,7 +22,9 @@
             --bg-light: #ffffff;
             --text-dark: #24292f;
             --text-muted-dark: #57606a;
+            /* Multi-Color Project Palette */
             --card-blue: #0969da;
+            --card-purple: #8250df;
             --link-blue: #58a6ff;
         }
 
@@ -176,14 +178,23 @@
         }
         
         .project-card {
-            background-color: var(--card-blue);
             border-radius: 8px;
             padding: 2.5rem;
             color: white;
             transition: transform 0.2s;
             text-align: center;
+        }
+        
+        /* Individual Card Colors */
+        .card-blue {
+            background-color: var(--card-blue);
             box-shadow: 0 10px 20px rgba(9, 105, 218, 0.15);
         }
+        .card-purple {
+            background-color: var(--card-purple);
+            box-shadow: 0 10px 20px rgba(130, 80, 223, 0.15);
+        }
+
         .project-card:hover {
             transform: translateY(-5px);
         }
@@ -385,14 +396,16 @@
             
             <div class="projects-grid">
                 
-                <div class="project-card">
+                <!-- WIDOWBOT (PURPLE) -->
+                <div class="project-card card-purple">
                     <i class="fas fa-server"></i>
                     <h3>Containerized VoIP Routing Engine (WidowBot)</h3>
-                    <p>A fully containerized, high-availability Python application integrated with a FreePBX server. I successfully bypassed strict SIP host firewalls using advanced Docker network routing and automated real-time database management.</p>
+                    <p><strong>Docker | FreePBX | Python</strong><br><br>A fully containerized, high-availability Python application integrated with a FreePBX server. I successfully bypassed strict SIP host firewalls using advanced Docker network routing and automated real-time database management.<br><br>
+                    <a href="https://github.com/Bissosaha/PBX-Routing-System" target="_blank" style="color: #ffffff; font-weight: 500; text-decoration: underline;"><i class="fab fa-github"></i> View Code</a></p>
                 </div>
 
-                <!-- NEW BORDANBOT PROJECT CARD -->
-                <div class="project-card">
+                <!-- BORDANBOT (BLUE) -->
+                <div class="project-card card-blue">
                     <i class="fas fa-network-wired"></i>
                     <h3>Containerized API Verification Engine (BordanBot)</h3>
                     <p><strong>Docker | Python | REST API</strong><br><br>Engineered a production-ready Telegram bot automating 5SIM REST API requests with asynchronous OTP polling and persistent SQLite tracking in a secure, containerized environment.<br><br>
