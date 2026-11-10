@@ -207,6 +207,13 @@
             align-items: center;
             gap: 8px;
         }
+        .timeline-subheader a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .timeline-subheader a:hover {
+            text-decoration: underline;
+        }
         
         .timeline-item ul {
             list-style-type: disc;
@@ -284,9 +291,9 @@
             /* Timeline */
             .timeline-header h3 { color: #000000 !important; }
             .timeline-header .date { color: #555555 !important; }
-            .timeline-subheader, .timeline-subheader i { color: #0366d6 !important; }
+            .timeline-subheader, .timeline-subheader i, .timeline-subheader a { color: #0366d6 !important; }
             
-            /* Text overrrides for PDF */
+            /* Text overrides for PDF */
             .timeline-item ul, .timeline-item li { color: #333333 !important; }
             .timeline-item li strong { color: #000000 !important; }
         }
@@ -311,7 +318,7 @@
 
         <div class="cv-header">
             <h1>Bishwajit Saha</h1>
-            <p>Systems Architect. Cloud Infrastructure Enthusiast. Backend Automation Specialist.</p>
+            <p>CSE student focused on Linux, Docker and DevOps.</p>
         </div>
 
         <div class="cv-body">
@@ -340,9 +347,9 @@
                     <div class="contact-item">
                        <i class="fab fa-linkedin"></i>
                        <a href="https://www.linkedin.com/in/bishwajitsahajoy/" target="_blank">bishwajit-saha</a>
-                  </div> 
+                   </div> 
                </div>     
-                  
+                 
                 <div class="sidebar-section">
                     <h2>Core Tech Stack</h2>
                     
@@ -360,6 +367,30 @@
                     </div>
                     <div class="skill-item">
                         <span>Docker / Containers</span>
+                        <div class="dots">
+                            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Flask</span>
+                        <div class="dots">
+                            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>MariaDB</span>
+                        <div class="dots">
+                            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Git / GitHub</span>
+                        <div class="dots">
+                            <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span>Asterisk / FreePBX</span>
                         <div class="dots">
                             <span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot filled"></span><span class="dot empty"></span>
                         </div>
@@ -422,37 +453,20 @@
                 </div>
 
                 <div class="content-section">
-                    <h2><i class="fas fa-server"></i> Systems Architecture & Projects</h2>
+                    <h2><i class="fas fa-server"></i> Projects</h2>
                     
                     <div class="timeline-item">
                         <div class="timeline-header">
-                            <h3>Containerized VoIP Routing Engine (WidowBot)</h3>
+                            <h3>PBX Number Router | Python, Flask, MariaDB, Docker, Asterisk/FreePBX</h3>
                             <span class="date">June 2026 - Present</span>
                         </div>
                         <div class="timeline-subheader">
-                            <i class="fab fa-github"></i> github.com/Bissosaha/PBX-Routing-System
+                            <i class="fab fa-github"></i> <a href="https://github.com/Bissosaha/pbx-number-router" target="_blank">github.com/Bissosaha/pbx-number-router</a>
                         </div>
                         <ul>
-                            <li><strong>Infrastructure Blueprint:</strong> Designed and orchestrated a fully containerized PBX environment utilizing Docker and FreePBX.</li>
-                            <li><strong>Network Problem Solving:</strong> Successfully engineered network protocols to bypass stringent SIP host firewalls, establishing secure external communication.</li>
-                            <li><strong>Automation Integration:</strong> Developed Python-based worker bots to automate real-time routing commands and manage database interactions seamlessly.</li>
-                        </ul>
-                    </div>
-
-                    <!-- NEW BORDANBOT TIMELINE ITEM -->
-                    <div class="timeline-item">
-                        <div class="timeline-header">
-                            <h3>Containerized API Verification Engine (BordanBot)</h3>
-                            <span class="date">July 2026 - Present</span>
-                        </div>
-                        <div class="timeline-subheader">
-                            <i class="fab fa-github"></i> github.com/Bissosaha/Bordan-Verification-Bot
-                        </div>
-                        <ul>
-                            <li><strong>API Automation:</strong> Engineered a production-ready Telegram bot using Python to automate REST API requests for virtual number allocation.</li>
-                            <li><strong>Async Operations:</strong> Implemented asynchronous threading for automated OTP polling and persistent data tracking using SQLite3.</li>
-                            <li><strong>Containerization:</strong> Containerized the entire infrastructure using Docker and Docker Compose, ensuring a zero-dependency, isolated deployment.</li>
-                            <li><strong>Security Operations:</strong> Designed strict Role-Based Access Control (RBAC) and secured environment variables to maintain production-level infrastructure security.</li>
+                            <li>Built a Flask web panel and a Telegram admin bot (aiogram, Docker) that bulk-allocate phone-number blocks to SIP extensions and regenerate Asterisk routing configuration in real time.</li>
+                            <li>Hardened the Linux VPS: key-only SSH, admin access over Tailscale, MariaDB on localhost, fail2ban for SSH and SIP, daily backups and automatic security updates.</li>
+                            <li>Moved secrets out of code into environment variables; added login rate limiting, constant-time comparisons and input validation; documented the project in a clean public repository.</li>
                         </ul>
                     </div>
 
